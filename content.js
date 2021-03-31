@@ -12,12 +12,12 @@ function hideAds() {
 setInterval(()=>{hideAds()}, 1000);
 
 chrome.runtime.sendMessage({
-  from: 'content',
-  subject: 'showPageAction',
+	from: 'content',
+	subject: 'showPageAction',
 });
 
 chrome.runtime.onMessage.addListener((msg, sender, response) => {
-  if ((msg.from === 'popup') && (msg.subject === 'ad_am')) {
-    response(ads)
-  }
+	if ((msg.from === 'popup') && (msg.subject === 'ad_am')) {
+		response(ads)
+	}
 });
